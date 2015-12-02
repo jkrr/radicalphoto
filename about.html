@@ -24,20 +24,22 @@
 	<div id="content">
 	<h2>About RadicalPhoto</h2>
 
-	<p>Today is <span>July 17, 2015</span>. Stay tuned, we have exciting news about our company coming in a few more weeks!</p>
+	<p>Today is <span id="about_date">July 17, 2015</span>. Stay tuned, we have exciting news about our company coming in a few more weeks!</p>
 
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
 	<h3>Our Team</h3>
 
 	<p id="bios">
-		<a href="sheila.html">Sheila</a> (President) | 
-		<a href="frank.html">Frank</a> (Vice President) | 
-		<a href="joanne.html">Joanne</a> (Senior Photographer)
+		<a id="bio1" href="sheila.html">Sheila</a> (President) | 
+		<a id="bio2" href="frank.html">Frank</a> (Vice President) | 
+		<a id="bio3" href="joanne.html">Joanne</a> (Senior Photographer)
 	</p> 
 
-	<div id="bio"></div>
-
+	<div id="bio">
+	    <img id="biopic" src="images/unknownbio.jpg" alt="Staff Member Picture" width="200" height="133">
+	</div>
+        
 	</div>
 
 	<div id="footer">
@@ -45,6 +47,23 @@
 	</div>
 
 </div>
-
+<script>
+//Biographies
+var biopic = document.getElementById("biopic");
+//Hover Event
+bio1.onmouseover = function () {
+    biopic.src="images/bio1.jpg";
+};
+bio2.onmouseover = function () {
+    biopic.src="images/bio2.jpg";
+};
+bio3.onmouseover = function () {
+    biopic.src="images/bio3.jpg";
+};
+//Date
+var up_Date = new Date();
+var name_of_month = ["Janunary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; 
+document.getElementById("about_date").innerHTML = name_of_month[up_Date.getMonth()] + " " +up_Date.getDate() + ", " + up_Date.getFullYear();
+    </script>
 </body>
 </html>
