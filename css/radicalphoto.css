@@ -25,6 +25,7 @@
 	font-weight: bold;
 	color: #CC0000; /* darkish red */
 	display: none;
+	padding-left: 10px;
 }
 
 body {

@@ -28,11 +28,9 @@
 
 	<form action="http://derekallard.com/echo.php" method="post" id="myform">
 
-		<p class="errors">All fields are required.</p>
-
-		<p><label>Name: <input type="text" size="25" name="name" id="username"></label></p>
-		<p><label>Email: <input type="text" size="25" name="email" id="email"></label></p>
-		<p><label>Message:<br><textarea cols="50" rows="5" name="message" id="my_message"></textarea></label></p>
+		<p><label>Name: <input type="text" size="25" name="name" id="username"></label><span id="iferrors1" class="errors">All fields are required.</span></p>
+		<p><label>Email: <input type="text" size="25" name="email" id="email"></label><p id="iferrors2" class="errors">All fields are required.</p></p>
+		<p><label>Message:<br><textarea cols="50" rows="5" name="message" id="my_message"></textarea></label><span id="iferrors3" class="errors">All fields are required.</span></p>
 		<p><input id="sbm_btn" type="submit" value="Contact Us"></p>
 	</form>
 
@@ -44,25 +42,26 @@
 
 </div>
     <script>
-    //Form Validation
- 
+    //Form
     var user_name = document.getElementById("username"); //username input
     var user_email = document.getElementById("email"); //email input
     var user_message = document.getElementById("my_message"); //message input
     var user_form = document.getElementById("myform"); //the form
-    var sbm_btn = document.getElementById("sbm_btn"); //submit button
-
+	//error spans
+    var iferrors1 = document.getElementById("iferrors1"); 
+    var iferrors2 = document.getElementById("iferrors2");
+    var iferrors3 = document.getElementById("iferrors3");
+    //form submission
     user_form.onsubmit = function () {
     	var sbm_errors = 0;
     	//form input values
     	var name_value = user_name.value;
         var email_value = user_email.value;
         var message_value = user_message.value;
-
     		if (name_value == "") {
                 user_name.style.border = "1px solid red";
                 user_name.style.boxShadow = "0 0 5px red";
-                user_name.innerHTML = "This is a required field."
+                iferrors1.style.display = "inline-block";
                 sbm_errors++;
             } else {
                 user_name.style.border = "1px solid green";
@@ -71,7 +70,7 @@
             if (email_value == "") {
                 user_email.style.border = "1px solid red";
                 user_email.style.boxShadow = "0 0 5px red";
-                user_email.innerHTML = "This is a required field."
+                iferrors2.style.display = "inline-block";
                 sbm_errors++;
             } else {
                 user_email.style.border = "1px solid green";
@@ -80,7 +79,7 @@
             if (message_value == "") {
                 user_message.style.border = "1px solid red";
                 user_message.style.boxShadow = "0 0 5px red";
-                user_message.innerHTML = "This is a required field."
+                iferrors3.style.display = "inline-block";
                 sbm_errors++;
             } else {
                 user_message.style.border = "1px solid green";
